@@ -52,3 +52,8 @@
 	path = ~/.gitconfig.local
 [fetch]
 	prune = true
+[github]
+	user = plicjo
+[user]
+	email = plicjo@gmail.com
+	name = "Joshua Plicque"

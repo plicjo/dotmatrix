@@ -10,6 +10,7 @@ old_sha=$(git rev-parse HEAD)
 git pull --rebase
 new_sha=$(git rev-parse HEAD)
 
+./bin/uninstall
 ./bin/install
 
 if [ "$old_sha" != "$new_sha" ]; then

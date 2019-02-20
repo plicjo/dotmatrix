@@ -1,11 +1,11 @@
 # vim:set ft=sh sw=2 sts=2:
 
-[ -e "$SOURCE_DIR" ] || SOURCE_DIR="$HOME/hashrocket"
+[ -e "$SOURCE_DIR" ] || SOURCE_DIR="$HOME/projects"
 export SOURCE_DIR
 
-# DEPRECATED: Use more generic SOURCE_DIR. HASHROCKET_DIR persists as a
+# DEPRECATED: Use more generic SOURCE_DIR. PROJECT_DIR persists as a
 # legacy artifact, and for 3rd-party scripts.
-export HASHROCKET_DIR=$SOURCE_DIR
+export PROJECT_DIR=$SOURCE_DIR
 
 # Paths for prepending
 #
@@ -32,10 +32,7 @@ done
 #
 alias be='bundle exec'
 alias groutes='rake routes | grep $@'
-alias rerun-cucumber="tmux showb | grep cucumber | awk '{print \$2}' | xargs cucumber"
-alias rerun-rspec="tmux showb | grep rspec | awk '{print \$2}' | xargs rspec"
 alias sc='rails console'
-alias sdbc='rails dbconsole -p'
 alias ss='rails server'
 
 # Ruby/Rails functions
@@ -146,6 +143,7 @@ alias gnap='git add -N --ignore-removal . && gap && gref'
 alias gp='git push'
 alias gplease='git push --force-with-lease'
 alias gpr='git pull --rebase'
+alias gpor='git pull --rebase origin master'
 alias gr='git rebase'
 alias gra='git rebase --abort'
 alias grc='git rebase --continue'
@@ -155,13 +153,4 @@ alias reset-authors='git commit --amend --reset-author -C HEAD'
 
 # Aliases
 #
-alias vi='vim'
-
-if [ "$(uname)" = Darwin -a "$(command -v vim)" = /usr/bin/vim ]; then
-  bettervim="/Applications/MacVim.app/Contents/MacOS/Vim"
-  [ -f "$bettervim" ] && alias vim="$bettervim"
-  [ -f "$HOME$bettervim" ] && alias vim="$HOME$bettervim"
-fi
-
-# RVM exectuble path for scripting, when available
-if [[ -s "$HOME/.rvm/bin" ]] ; then export PATH="$PATH:$HOME/.rvm/bin" ; fi
+alias vim='nvim'
